@@ -1,0 +1,81 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'OpenDyslexic Mono', 'CozetteVector', 'Space Mono', 'Roboto', sans-serif;
+  overflow: hidden;
+  background: #062e32;
+  color: #c2cccd;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 80vw;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(4, 20vw);
+}
+
+.bookmark-section {
+  display: grid;
+  grid-template-columns: repeat(2, calc(10vw - 10px));
+  grid-template-rows: repeat(7, 10vh); 
+  gap: 10px;
+}
+
+.bookmark-title {
+  border: 1px solid white;
+  border-radius: 10px;
+  grid-column: span 2;
+  display: flex;
+  color: #996300;
+  transition: background 250ms ease-in-out;
+}
+
+.bookmark-title > span {
+  margin: auto;
+  font-size: 1.5em;
+}
+
+.bookmark-list-container {
+  grid-column: span 2;
+  grid-row: span 6;
+  display: grid;
+  grid-template-columns: repeat(2, calc(10vw - 10px));
+  grid-template-rows: repeat(6, calc(10vh - 10px));
+  gap: 10px;
+}
+
+.cell {
+  background: #084444;
+  border: 1px solid white;
+  border-radius: 10px;
+  grid-column: span 1;
+  grid-row: span 2;
+  transition: background 250ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  color: #509b7f; 
+  text-decoration: none;
+}
+
+.cell:hover, .bookmark-section:hover .bookmark-title {
+  background: #320606;
+  transition: background 250ms ease-in-out;
+}
+
+img {
+  max-width: 75%;
+  max-height: 75%;
+}

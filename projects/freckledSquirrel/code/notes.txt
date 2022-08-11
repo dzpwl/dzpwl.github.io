@@ -1,0 +1,37 @@
+Content:
+  Splash page/section
+    Scrolling photos of restaurant/food
+  Info
+    Hours
+    Location
+    Phone
+  Menu(s)
+    Lunch
+    Dinner
+    Drinks
+  Private Events
+    Booking form:
+      First Name
+      Last Name
+      Email
+      Phone number
+      Party Size
+      Type of event (scroll)
+      Date (calendar popup)
+      Time (scroll)
+      Additional info
+      Submit
+  About section
+    Chef
+    Press
+    Events
+    Jobs
+
+
+Layout #1: multi page
+  Navigation: header
+
+
+Layout #2: all on one page
+  Navigation: sidebar
+    Links scroll to page sections

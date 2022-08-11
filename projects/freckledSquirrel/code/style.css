@@ -1,0 +1,164 @@
+/*Google map styling, leaving just the logo*/
+
+.gm-style-cc {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-variant: small-caps;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+a, a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+/*Placeholder, change later*/
+li a:hover::before, li a:hover::after {
+  content: '+';
+}
+
+h1 {
+  font-family: 'Cinzel';
+  font-size: 32;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 15 0;
+}
+
+i {
+  font-variant: normal;
+}
+
+.nav {
+  width: 240px;
+  background: pink;
+  text-align: center;
+  height: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.logo {
+  width: 240px;
+  height: 240px;
+}
+
+.content {
+  overflow-x: hidden;
+  margin-left: 240px;
+  display: block;
+  width: 90%;
+}
+
+.splash {
+  overflow-x: hidden;
+  z-index: -1;
+  position: relative;
+  user-select: none;
+}
+
+.splash img {
+  overflow: hidden;
+  min-width: 1666px;
+  max-width: 100%;
+  max-height: 992px;
+}
+
+.banner-float {
+  padding: 15px;
+  position: absolute;
+  right: 40%;
+  top: 500;
+  height: auto;
+  width: 500px;
+  background: #FFFDD0;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.section {
+  display: flex;
+  width: 100%;
+}
+
+.wrapper {
+  padding: 2%;
+  display: flex;
+  width: 70%;
+  margin: auto;
+}
+
+.location, .hours {
+  width: 50%;
+  text-align: center;
+}
+
+
+#info {
+  background: #AAA;
+}
+
+#map {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 350px;
+  width: 350px;
+}
+
+#menus {
+  background-image: url('img/papertexture.jpg');
+  background-size: cover;
+}
+
+#menus .wrapper {
+  text-align: center;
+  display: block;
+  position: relative;
+}
+
+.menu-wrapper {
+
+  position: relative;
+  padding: 50px 0;
+}
+
+.menu-wrapper li {
+  display: inline-block;
+  width: 100px;
+  height: auto;
+  background: none;
+  border: 1px black solid;
+  margin: 0 15px;
+  transition-property: background-color color;
+  transition-duration: 0.5s;
+}
+
+.menu-wrapper li:hover {
+  background: #FFFDD0;
+  color: #F15A23;
+  border: 1px #F15A23 solid;
+  transition-property: background-color color;
+  transition-duration: 0.5s;
+}

@@ -1,0 +1,73 @@
+:root {
+  --font-mono: "Mono";
+  --font-serif: "Merriweather";
+  --font-sans-serif: "Manrope";
+  --gradient-start: 255, 27, 141, 1;
+  --gradient-middle: 255, 218, 0, 1;
+  --gradient-end: 27, 179, 255, 1;
+}
+
+html, body {
+  height: 99vh;
+  width: 100vw;
+  font-family: var(--font-sans-serif), sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 1)
+    ),
+    linear-gradient(
+      to right,
+      rgba(var(--gradient-start)),
+      rgba(var(--gradient-middle)),
+      rgba(var(--gradient-end))
+    );
+  background-size: 100% 2px, 0 2px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+a:hover {
+  background-size: 0 2px, 100% 2px;
+}
+
+pre {
+  font-family: var(--font-mono), monospace;
+}
+
+.header {
+  display: flex;
+  height: 15vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  height: 80%;
+}
+
+#left, #right {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#left {
+  flex-direction: column;
+}
+

@@ -1,0 +1,75 @@
+* {
+  max-height: 98vh;
+}
+
+body {
+  font-family: 'OpenDyslexicMono', 'CozetteVector', 'Space Mono', 'Roboto', sans-serif;
+  font-size: 12px;
+  background: #062e32;
+  color: #c2cccd;
+}
+
+#tip {
+  display: none;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#search {
+  display: flex;
+  justify-content: center;
+}
+
+#search-field {
+  outline: 0;
+  font-family: 'CozetteVector';
+  font-size: 12px;
+  border:0;
+  border-bottom: 2px solid #c2ceed;
+  margin: 2em;
+  color: inherit;
+  background: inherit;
+  width: 50%;
+  justify-content: center;
+  opacity: 0.2;
+  transition: opacity 500ms;
+}
+
+#search-field:hover, #search-field:focus-within, input:hover, #search:hover, #search:focus-within {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+input.placeholder, ::-webkit-input-placeholder, input:-moz-placeholder, input::-moz-placeholder, :-ms-input-placeholder, ::-ms-input-placeholder, input::placeholder {
+  color: #000;
+  justify-content: center;
+}
+
+.bookmark-title, .bookmark-list-container {
+  display: inline-block;
+}
+
+.bookmark-title {
+  min-width: 7em;
+  color: #996300;
+
+}
+
+.bookmark-list-container {
+  padding: 2px 0;
+}
+a {
+  color: #509b7f; 
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+a:hover {
+  color: #9984B9;
+  transition: color 500ms;
+}
