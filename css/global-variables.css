@@ -1,0 +1,23 @@
+:root {
+  --main-bg-color: #062e32;
+  --main-fg-color: #c2cccd;
+  --soft-fg-color: #9ba3a4;
+  --main-font: "Public Sans";
+  --base-font-size: 16px;
+  --fallback-font: "Nunito";
+  --mono-font: "Dank Mono";
+  --header-font: "Sweet Sans Pro";
+  --section-title-font: "Sweet Sans Pro";
+  --section-title-font-size: 2.5rem;
+  --section-title-color: #a287ab;
+  --section-body-font-size: 1.5rem;
+  --quote-font: "Space Grotesk";
+  --link-fg-color: #6795c9;
+  --link-hl-color: #6795c9;
+  --name-fg-color: #984b98;
+  --h3-fg-color: #e2a50d;
+  --h3-font-size: 18px;
+  --gradient-start: 255, 27, 141, 1;
+  --gradient-middle: 255, 218, 0, 1;
+  --gradient-end: 27, 179, 255, 1;
+} 

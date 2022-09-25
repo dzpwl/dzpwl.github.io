@@ -1,0 +1,92 @@
+:root {
+  --main-bg-color: #062e32;
+  --main-fg-color: #c2cccd;
+  --soft-fg-color: #4d5152;
+  --main-font: "Public Sans";
+  --base-font-size: 16px;
+  --fallback-font: "Nunito";
+  --mono-font: "Dank Mono";
+  --header-font: "Sweet Sans Pro";
+  --section-title-font: "Sweet Sans Pro";
+  --section-title-font-size: 2.5rem;
+  --section-title-color: #a287ab;
+  --section-body-font-size: 1.5rem;
+  --quote-font: "Space Grotesk";
+  --link-fg-color: #6795c9;
+  --link-hl-color: #6795c9;
+  --name-fg-color: #984b98;
+  --h3-fg-color: #e2a50d;
+  --h3-font-size: 1.2rem;
+  --gradient-start: 255, 27, 141, 1; 
+  --gradient-middle: 255, 218, 0, 1;
+  --gradient-end: 27, 179, 255, 1;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--main-bg-color);
+  color: var(--main-fg-color);
+  font-family: var(--main-font), var(--fallback-font), sans-serif;
+  font-size: var(--base-font-size);
+}
+
+a {
+  color: var(--link-fg-color);
+  text-decoration: none;
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(
+      to right,
+      rgba(var(--gradient-start)),
+      rgba(var(--gradient-middle)),
+      rgba(var(--gradient-end))
+    );
+  background-size: 100% 1px, 0 1px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms, color 400ms;
+}
+
+a:hover {
+  color: var(--link-hl-color);
+  background-size: 0 1px, 100% 1px;
+  transition: background-size 400ms;
+}
+
+i {
+  color: var(--link-fg-color);
+  transition: all 400ms;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li:before {
+  content: "";
+}
+
+li {
+  padding: 2px 0;
+  text-decoration: none;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}

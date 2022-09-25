@@ -1,0 +1,32 @@
+body {
+  margin: 10rem;
+  font-size: 1.2rem;
+}
+
+.date {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+figure {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+figure img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+figcaption {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  font-size: .9rem;
+  font-style: italic;
+  color: var(--soft-fg-color);
+}

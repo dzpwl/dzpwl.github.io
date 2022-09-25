@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# A script to help with creating blog posts 
+# This script will create a file with a filename of the year, month, day, hour, minute, and second of when the script is run, delimited by an underscore. It is in this specific format so that files in the directory will be truly chronological and to avoid as many issues as possible with filenames.
+# File accepts up to 1 argument which will be the page title; a blank title will leave it up to pandoc on conversion.  
+
+# TODO: make option to open file after creation
+# TODO: set the title as filename unless specified by -t|--title= 
+# TODO: allow custom blog directory name
+
+filename=$(date +"%Y_%m_%d_%H_%M_%S")
+
+if [ -n $1 ]; then
+  title=$1
+else
+  title=$filename
+fi
+
+# if [ ! -d "blog" ]; then
+#   echo "./blog directory does not exist, creating..."
+#   mkdir blog
+# fi
+
+# cat << EOF >> ./blog/${filename}.md
+cat << EOF >> ./${filename}.md
+---
+title: "$title"
+...
+EOF
+
+vi ./blog/${filename}.md
