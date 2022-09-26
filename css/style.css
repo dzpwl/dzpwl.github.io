@@ -42,6 +42,7 @@ a:hover {
 
 i {
   color: var(--link-fg-color);
+  font-size: 24px;
   transition: all 400ms;
 }
 
@@ -187,7 +188,7 @@ li {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
   to {
     transform: scale(1);
