@@ -30,3 +30,28 @@ figcaption {
   font-style: italic;
   color: var(--soft-fg-color);
 }
+
+blockquote {
+  border-left: 10px solid var(--bq-border-color);
+  margin-left: 0;
+  padding-left: 40px;
+}
+
+code {
+  margin: 0 5px;
+  padding: 2px 5px;
+  background: var(--code-bg-color);
+  font-size: 1rem;
+}
+
+.sourceCode {
+  background: var(--code-bg-color);
+}
+
+.dt {
+  color: var(--dt-color);
+}
+
+.st {
+  color: var(--st-color);
+}

@@ -1,0 +1,10 @@
+{
+  "nav": [
+    {"label": "home", "href": "../../index.html" },
+    {"label": "blog", "href": "../index.html" }
+  ],
+  "sidebar": [
+    {"placeholder"}
+  ]
+}
+    

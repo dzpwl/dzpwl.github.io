@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# A script to generate static webpages using pandoc, with template support 
+
+# This script is meant to be used inside $siteroot/blog. It will process all .md files in $siteroot/blog/posts, and output to $siteroot/blog/generated. 
+
+# My setup has partials included in the template file, as yours should too, so the default behavior is for this script to use the template in your $siteroot/blog directory. If you have more than one or use a different directory, use --template to specifiy which to use, or use --no-template to generate as-is.  
+# NOT POSIX COMPLIANT AT THE MOMENT
+# variable substitution of is bashism
+
+if [ ! -d "generated" ]; then
+  echo "Creating output directory..."
+  mkdir generated
+fi
+
+for f in posts/*; do
+  file=${f##*/}
+  pandoc --template=blogpost.tpl --metadata-file=metadata.json $f > "generated/${file//md/html}"
+done 
+
+

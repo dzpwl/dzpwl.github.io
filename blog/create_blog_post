@@ -9,6 +9,7 @@
 # TODO: allow custom blog directory name
 
 filename=$(date +"%Y_%m_%d_%H_%M_%S")
+post_date=$(date +"%A %d %B, %Y")
 
 if [ -n $1 ]; then
   title=$1
@@ -16,16 +17,14 @@ else
   title=$filename
 fi
 
-# if [ ! -d "blog" ]; then
-#   echo "./blog directory does not exist, creating..."
-#   mkdir blog
-# fi
-
-# cat << EOF >> ./blog/${filename}.md
-cat << EOF >> ./${filename}.md
+cat << EOF >> ./posts/${filename}.md
 ---
 title: "$title"
+date: "$post_date"
+tags: []
 ...
 EOF
 
-vi ./blog/${filename}.md
+vi ./posts/${filename}.md
+
+./build_posts

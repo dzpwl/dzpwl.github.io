@@ -42,7 +42,7 @@ a:hover {
 
 i {
   color: var(--link-fg-color);
-  font-size: 24px;
+  font-size: 20px;
   transition: all 400ms;
 }
 
