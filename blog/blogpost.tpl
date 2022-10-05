@@ -10,8 +10,10 @@
 
   </head>
   <body>
+    <div class="content">
     ${if(date)}<p class="date">$date$</p>${endif}
     $body$
+    </div>
   </body>
   ${if(sidebar)}${sidebar.tpl()}${endif}
 </html>
