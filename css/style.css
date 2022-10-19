@@ -1,119 +1,6 @@
 body {
   display: flex;
   flex-direction: column;
-  width: 82vw;
-  margin: 0;
-  background: var(--main-bg-color);
-  color: var(--main-fg-color);
-  font-family: var(--font-main), var(--font-fallback), sans-serif;
-  font-size: var(--font-size);
-}
-
-a {
-  color: var(--link-fg-color);
-  text-decoration: none;
-  background:
-    linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0)
-    ),
-    linear-gradient(
-      to right,
-      rgba(var(--gradient-start)),
-      rgba(var(--gradient-middle)),
-      rgba(var(--gradient-end))
-    );
-  background-size: 100% 1px, 0 1px;
-  background-position: 100% 100%, 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 400ms, color 400ms;
-}
-
-a:hover {
-  color: var(--link-hl-color);
-  background-size: 0 1px, 100% 1px;
-  transition: background-size 400ms;
-}
-
-i {
-  color: var(--link-fg-color);
-  font-size: 20px;
-  transition: all 400ms;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li:before {
-  content: "";
-}
-
-li {
-  padding: 2px 0;
-  text-decoration: none;
-}
-
-.content {
-  width: 80vw;
-  padding: 0 10em;
-}
-
-.nav {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding-left: 2em;
-}
-
-.nav a:hover {
-  color: var(--link-fg-color);
-}
-
-.section-container {
-  max-width: 780px;
-  padding: 5rem 0;
-  margin-left: auto;
-  margin-right: auto;
-  height: 100vh;
-}
-
-#projects, #contact {
-  display: none;
-}
-
-.section-title {
-  font-family: var(--section-title-font);
-  font-size: var(--section-title-font-size);
-  color: var(--section-title-color);
-  padding-bottom: 1rem;
-}
-
-.section-body {
-  font-size: var(--section-body-font-size);
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  width: 18vw;
-  height: 100%;
-  padding-right: 5em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  filter: opacity(20%) grayscale(1);
-  transition: filter 600ms ease-in;
-}
-
-.sidebar:hover {
-  filter: none;
-  transition: filter 600ms ease-in-out;
 }
 
 #headshot {
@@ -124,17 +11,37 @@ li {
   margin: 0 auto;
 }
 
+.nav {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-left: 2em;
+}
+
+.section-title {
+  font-family: var(--section-title-font);
+  font-size: var(--section-title-font-size);
+  color: var(--section-title-color);
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
 #name {
   text-align: center;
   color: var(--name-fg-color);
   font-family: var(--header-font);
 }
 
+#projects, #contact {
+  display: none;
+}
+
 #quote {
   font-family: var(--quote-font);
   font-style: italic;
   font-weight: bold;
-  text-align: justify;
+  text-align: center;
   padding-bottom: 2em;
 }
 
@@ -144,23 +51,20 @@ li {
 
 #quote:after {
   content: "\"";
-  }
+}
 
 .blurb h3 {
   font-weight: bold;
   font-size: var(--h3-font-size);
   font-family: var(--header-font);
   color: var(--h3-fg-color);
-  padding-left: 1.5em;
   margin-bottom: 0;
+  text-align: center;
 }
 
-.blurb li {
-  padding-bottom: .5em;
-}
-
-.footer {
-  margin-top: auto;
+.blurb ul {
+  padding: 0 2rem;
+  text-align: justify;
 }
 
 .footer ul {
@@ -174,19 +78,57 @@ li {
   padding: 0 20px;
 }
 
-.footer a:hover {
-  background-size: 100% 1px, 0 1px;
-  animation: pulse 1.5s ease-in-out infinite both;
-}
+@media only screen
+and (min-width : 1224px) {
 
-@keyframes pulse {
-  from {
-    transform: scale(1);
+  .nav a:hover {
+    color: var(--link-fg-color);
   }
-  50% {
-    transform: scale(1.4);
+
+  .section-container {
+    max-width: 780px;
+    padding: 5rem 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
   }
-  to {
-    transform: scale(1);
+
+  .section-body {
+    font-size: var(--section-body-font-size);
+  }
+
+  .sidebar {
+    filter: opacity(20%) grayscale(1);
+    transition: filter 600ms ease-in;
+  }
+
+  .sidebar:hover {
+    filter: none;
+    transition: filter 600ms ease-in-out;
+  }
+
+  .blurb h3 {
+    padding-left: 1.5em;
+  }
+
+  .footer {
+    margin-top: auto;
+  }
+
+  .footer a:hover {
+    background-size: 100% 1px, 0 1px;
+    animation: pulse 1.5s ease-in-out infinite both;
+  }
+
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.4);
+    }
+    to {
+      transform: scale(1);
+    }
   }
 }

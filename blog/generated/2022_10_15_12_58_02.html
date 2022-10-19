@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="date" content=''>
+    <link rel="stylesheet" href="../../css/global-variables.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../css/global-style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../css/blog.css" type="text/css" media="all">
+    <title>The Church of Acme Code Blog - Bash script for jwm menu generation</title>
+
+  </head>
+  <body>
+    <div class="content">
+    <p class="date">Saturday 15 October, 2022</p>
+    <p>I have been trudging along a bit with some coding lately, as I find myself busier than I’d like to be, again. I have been poking around the website a little bit, improving the appearance on mobile. I know I should have started with mobile first, but I have been relying on the inspector built in to Firefox (or in my specific case, <a href="https://librewolf.net">LibreWolf</a>, and it just doesn’t look exactly like it does on mobile. However, I do have all the media queries in place for each of the standard devices referenced in <a href="https://css-tricks.com/snippets/css/media-queries-for-standard-devices/">this handy post on CSS-Tricks</a>; I have adapted the values here to cover those within a reasonable range of each other in order to not have 20 different sets of media queries with more or less the same rules.</p>
+    <p>Beyond that, I have updated my <a href="https://github.com/dzpwl/doot">dotfile repository</a> to include branches for my laptop and my different desktops (I primarily use <a href="https://getfedora.org">fedora</a> and <a href="https://trisquel.info/">trisquel</a> with <a href="https://joewing.net/projects/jwm/">jwm</a> as my wm). It’s been a great learning experience for git and how that works, how the branches relate to each other, how they should be used (after this experience, I would not use separate branches to target different devices for any project I’d expect any other human to use). In this process, I found that the menu generator that I use on trisquel, crispy waffle, is no longer available. <a href="https://antixlinux.com/">antiX</a>, which I use on my laptop, has its own menu generator that would work just fine (based off of <a href="http://xdg-menu.sourceforge.net/">this one</a>), but I decided what the heck, why not try out the experience of writing my own.</p>
+    <p>Currently, it is written in bash, and is not exactly POSIX compliant, but when writing it, I found that bash is definitely not the tool best suited for it. Both xdg-menu and antiX’s desktop-menu tools are written in python, probably not just because the latter is based off of the former, but because it is a better-suited tool for the job.</p>
+    </div>
+  </body>
+  <div class="sidebar">
+  <div class="nav">
+    <ul>
+  <li><a class="navlink" href="../../index.html">home</a></li><li><a class="navlink" href="../index.html">blog</a></li>
+</ul>
+  </div>
+<div>
+</html>
