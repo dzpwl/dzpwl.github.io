@@ -1,28 +1,59 @@
+body {
+  width: 100vw;
+  max-width: 100%;
+}
+
+.directorylink {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--main-fg-color);
+}
+
+.directorylink:hover {
+  color: var(--standout-color-bright);
+}
+
 .content {
-  max-width: 80%;
-  padding: 5rem 0;
-  margin-left: auto;
-  margin-right: auto;
   text-align: justify;
 }
 
-.date {
-  font-size: 1.5rem;
-  font-style: italic;
+.title {
+  font-family: var(--header-font);
+  font-size: 2rem;
   font-weight: bold;
+  text-align: center;
+  color: var(--section-title-color);
+  margin: auto;
+  padding-bottom: 2rem;
+}
+
+.date {
+  font-family: var(--header-font);
+  font-style: italic;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  color: var(--date-color);
+}
+
+time {
+  padding-right: 1em;
+  color: var(--soft-fg-color);
+  font-size: .8em;
+  font-style: italic;
+  margin: auto;
 }
 
 figure {
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  padding: 30px 0;
   display: flex;
   flex-direction: column;
 }
 
 figure img {
-  margin-left: auto;
-  margin-right: auto;
-  width: 500px;
+  margin: auto;
+  padding: 1.5rem 0;
+  width: fit-content;
 }
 
 figcaption {
@@ -35,20 +66,26 @@ figcaption {
 }
 
 blockquote {
-  border-left: 10px solid var(--bq-border-color);
+  border-left: 10px solid var(--blockquote-border-color);
   margin-left: 0;
   padding-left: 40px;
 }
 
 code {
-  margin: 0 5px;
-  padding: 2px 5px;
+  font-family: var(--mono-font), monospace;
+  margin: 0;
+  padding: 0;
   background: var(--code-bg-color);
   font-size: 1rem;
 }
 
+hr {
+  margin: 3em 0;
+}
+
 .sourceCode {
   background: var(--code-bg-color);
+  font-family: var(--mono-font), monospace;
 }
 
 .dt {
@@ -57,4 +94,43 @@ code {
 
 .st {
   color: var(--st-color);
+}
+
+.nav ul {
+  max-width: 25vw;
+  margin: auto;
+  font-variant: small-caps;
+}
+
+.footer {
+  padding-top: 2em;
+  padding-bottom: 3.5em;
+  font-size: 1.5em;
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 926px) {
+  .content {
+    padding: 0;
+  }
+}
+
+@media only screen
+and (min-device-width: 1224px) {
+  .content {
+    margin: auto;
+    padding: 2.5em;
+    min-width: 800px;
+    max-width: 60vw;
+  }
+
+  .directory {
+    padding-top: 2em;
+  }
+
+  .entries {
+    padding: 1rem 5rem;
+  }
+
 }

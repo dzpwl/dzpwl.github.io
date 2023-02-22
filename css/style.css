@@ -1,3 +1,36 @@
+@media only screen
+and (max-device-width: 926px)
+{
+  .sidebar #name, .sidebar #headshot, .sidebar #quote {
+    display: none;
+  }
+
+  .section-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+  }
+
+  .blurb h3 {
+    font-size: var(--section-title-font-size);
+    padding-bottom: 1em;
+  }
+
+  .blurb ul {
+    font-size: 1.3em;
+  }
+
+  .footer {
+    padding-top: 2em;
+    font-size: 2em;
+  }
+
+  #about #headshot {
+    max-width: 10em;
+  }
+
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -5,7 +38,6 @@ body {
 
 #headshot {
   border-radius: 50%;
-  max-width: 120px;
   padding: 5px;
   border: 1px solid;
   margin: 0 auto;
@@ -25,6 +57,11 @@ body {
   color: var(--section-title-color);
   padding-bottom: 1rem;
   text-align: center;
+}
+
+
+.section-body {
+  text-align: justify;
 }
 
 #name {
@@ -55,7 +92,6 @@ body {
 
 .blurb h3 {
   font-weight: bold;
-  font-size: var(--h3-font-size);
   font-family: var(--header-font);
   color: var(--h3-fg-color);
   margin-bottom: 0;
@@ -63,8 +99,11 @@ body {
 }
 
 .blurb ul {
-  padding: 0 2rem;
-  text-align: justify;
+  padding: 0;
+}
+
+.blurb li {
+  padding: .5rem 0;
 }
 
 .footer ul {
@@ -81,8 +120,16 @@ body {
 @media only screen
 and (min-width : 1224px) {
 
+  #about #headshot {
+    display: none;
+  }
+
   .nav a:hover {
     color: var(--link-fg-color);
+  }
+
+  section {
+    height: 100vh;
   }
 
   .section-container {
@@ -90,7 +137,6 @@ and (min-width : 1224px) {
     padding: 5rem 0;
     margin-left: auto;
     margin-right: auto;
-    height: 100vh;
   }
 
   .section-body {
@@ -108,7 +154,7 @@ and (min-width : 1224px) {
   }
 
   .blurb h3 {
-    padding-left: 1.5em;
+    font-size: var(--h3-font-size);
   }
 
   .footer {
@@ -118,6 +164,10 @@ and (min-width : 1224px) {
   .footer a:hover {
     background-size: 100% 1px, 0 1px;
     animation: pulse 1.5s ease-in-out infinite both;
+  }
+
+  #headshot {
+    max-width: 9em;
   }
 
   @keyframes pulse {

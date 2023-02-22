@@ -3,42 +3,90 @@
   <head>
     <meta charset="utf-8">
     <meta name="date" content=''>
+    <link rel="stylesheet" href="../../css/font.css" type="text/css" media="all">
     <link rel="stylesheet" href="../../css/global-variables.css" type="text/css" media="all">
     <link rel="stylesheet" href="../../css/global-style.css" type="text/css" media="all">
     <link rel="stylesheet" href="../../css/blog.css" type="text/css" media="all">
-    <title>The Church of Acme Code Blog - Learning curves with pandoc</title>
+    <title>The Church of Acme Code Blog - Learning curves with
+pandoc</title>
 
   </head>
   <body>
     <div class="content">
-    <p class="date">Friday, 30 September, 2022</p>
-    <p>I’m starting this post as mostly a method of venting, since I have spent the better part of my work over the last couple of days struggling with the documentation of <a href="https://pandoc.org/">pandoc</a> (I should note the fault is likely my own).</p>
-    <p>This originally started when I had been unable to get my partials to display when converting my markdown entries using my template. I had been following all of the styles shown on pandoc’s documentation, from <code>${nav()}</code> to <code>${ nav() }</code> to <code>${ nav() }$</code> to <code>${ nav.tpl() }$</code> and nothing had worked. I can chalk that up to the pandoc that is in <a href="https://trisquel.info">trisquel’s</a> repositories (nothing against the folks at trisquel, I understand how difficult distro management can be when your goal is to remove all proprietary code from another distro whose team is much larger). So I did install the most recent version of pandoc which did resolve this portion of it.</p>
-    <p>The next part is one that I didn’t quite understand when I had read it. Specifically, this part:</p>
+    <p class="title">Learning curves with pandoc</p>
+    <p>I’m starting this post as mostly a method of venting, since I
+    have spent the better part of my work over the last couple of days
+    struggling with the documentation of <a
+    href="https://pandoc.org/">pandoc</a> (I should note the fault is
+    likely my own).</p>
+    <p>This originally started when I had been unable to get my partials
+    to display when converting my markdown entries using my template. I
+    had been following all of the styles shown on pandoc’s
+    documentation, from <code>${nav()}</code> to <code>${ nav() }</code>
+    to <code>${ nav() }$</code> to <code>${ nav.tpl() }$</code> and
+    nothing had worked. I can chalk that up to the pandoc that is in <a
+    href="https://trisquel.info">trisquel’s</a> repositories (nothing
+    against the folks at trisquel, I understand how difficult distro
+    management can be when your goal is to remove all proprietary code
+    from another distro whose team is much larger). So I did install the
+    most recent version of pandoc which did resolve this portion of
+    it.</p>
+    <p>The next part is one that I didn’t quite understand when I had
+    read it. Specifically, this part:</p>
     <blockquote>
-    <p>Templates contain variables, which allow for the inclusion of arbitrary information at any point in the file. They may be set at the command line using the -V/–variable option. If a variable is not set, pandoc will look for the key in the document’s metadata, which can be set using either YAML metadata blocks or with the -M/–metadata option.</p>
+    <p>Templates contain variables, which allow for the inclusion of
+    arbitrary information at any point in the file. They may be set at
+    the command line using the -V/–variable option. If a variable is not
+    set, pandoc will look for the key in the document’s metadata, which
+    can be set using either YAML metadata blocks or with the
+    -M/–metadata option.</p>
     </blockquote>
-    <p>I could’t quite tell from the wording, but I had taken this to mean that you could just set an empty set for the partial’s variable (in my case, <code>sidebar</code>). In actuality, it seems that you can set any variable you want in the metadata, whether or not you reference that data at all. Originally, I left the set empty, which did not work, so I yanked and pasted a line from the <code>"nav"</code> section to test, and my placeholder text showed up! After making my intentions more explicit:</p>
-    <div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">{</span></span>
-    <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  <span class="dt">&quot;nav&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
-    <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="fu">{</span><span class="dt">&quot;label&quot;</span><span class="fu">:</span> <span class="st">&quot;home&quot;</span><span class="fu">,</span> <span class="dt">&quot;href&quot;</span><span class="fu">:</span> <span class="st">&quot;../../index.html&quot;</span> <span class="fu">}</span><span class="ot">,</span></span>
-    <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="fu">{</span><span class="dt">&quot;label&quot;</span><span class="fu">:</span> <span class="st">&quot;blog&quot;</span><span class="fu">,</span> <span class="dt">&quot;href&quot;</span><span class="fu">:</span> <span class="st">&quot;../index.html&quot;</span> <span class="fu">}</span></span>
-    <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  <span class="ot">]</span><span class="fu">,</span></span>
-    <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>  <span class="dt">&quot;sidebar&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
-    <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    <span class="fu">{</span><span class="dt">&quot;placeholder&quot;</span><span class="fu">}</span></span>
-    <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>  <span class="ot">]</span></span>
-    <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="fu">}</span></span></code></pre></div>
-    <p>Forgive the awful URLs as I do a lot of testing offline, and I do fix these before uploading. I just like navigating around to get a feel for the site.</p>
-    <p>Anyway, it was definitely a frustrating bit of time trying to come to grips with this, and as impatient as I can get due to how little time I do actually get to sit down and code, it’s a great lesson to be petient with the proper documentation. As much websearching as I did to find the problem, this specific one did not show up at all, whether due to nobody else trying to do exactly what I was doing, or my inability to <a href="https://knowyourmeme.com/memes/rtfm">rtfm</a>.</p>
-    <p><a href="https://rsdoiel.github.io/blog/2020/11/09/Pandoc-Partials.html">This</a> was a great resource when tackling this problem, and was the reason I realized what I was initially doing wrong when failing to specify the metadata file, which greatly reduced my time to actually fix the issue. So, thanks!</p>
-    <p>And thanks again to you for reading about my short-sighted misadventures.</p>
+    <p>I could’t quite tell from the wording, but I had taken this to
+    mean that you could just set an empty set for the partial’s variable
+    (in my case, <code>sidebar</code>). In actuality, it seems that you
+    can set any variable you want in the metadata, whether or not you
+    reference that data at all. Originally, I left the set empty, which
+    did not work, so I yanked and pasted a line from the
+    <code>"nav"</code> section to test, and my placeholder text showed
+    up! After making my intentions more explicit:</p>
+    <div class="sourceCode" id="cb1"><pre
+    class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;nav&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">&quot;label&quot;</span><span class="fu">:</span> <span class="st">&quot;home&quot;</span><span class="fu">,</span> <span class="dt">&quot;href&quot;</span><span class="fu">:</span> <span class="st">&quot;../../index.html&quot;</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">&quot;label&quot;</span><span class="fu">:</span> <span class="st">&quot;blog&quot;</span><span class="fu">,</span> <span class="dt">&quot;href&quot;</span><span class="fu">:</span> <span class="st">&quot;../index.html&quot;</span> <span class="fu">}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;sidebar&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">&quot;placeholder&quot;</span><span class="fu">}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+    <p>Forgive the awful URLs as I do a lot of testing offline, and I do
+    fix these before uploading. I just like navigating around to get a
+    feel for the site.</p>
+    <p>Anyway, it was definitely a frustrating bit of time trying to
+    come to grips with this, and as impatient as I can get due to how
+    little time I do actually get to sit down and code, it’s a great
+    lesson to be petient with the proper documentation. As much
+    websearching as I did to find the problem, this specific one did not
+    show up at all, whether due to nobody else trying to do exactly what
+    I was doing, or my inability to <a
+    href="https://knowyourmeme.com/memes/rtfm">rtfm</a>.</p>
+    <p><a
+    href="https://rsdoiel.github.io/blog/2020/11/09/Pandoc-Partials.html">This</a>
+    was a great resource when tackling this problem, and was the reason
+    I realized what I was initially doing wrong when failing to specify
+    the metadata file, which greatly reduced my time to actually fix the
+    issue. So, thanks!</p>
+    <p>And thanks again to you for reading about my short-sighted
+    misadventures.</p>
+    <p class="date">2022 Sep 30</p>
     </div>
   </body>
-  <div class="sidebar">
+  <div class="footer">
   <div class="nav">
     <ul>
-  <li><a class="navlink" href="../../index.html">home</a></li><li><a class="navlink" href="../index.html">blog</a></li>
+  <li><a class="navlink" href="/index.html">home</a></li><li><a class="navlink" href="/blog/index.html">blog</a></li>
 </ul>
+    
   </div>
 <div>
 </html>

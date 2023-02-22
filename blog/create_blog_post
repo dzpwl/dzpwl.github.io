@@ -9,18 +9,24 @@
 # TODO: allow custom blog directory name
 
 filename=$(date +"%Y_%m_%d_%H_%M_%S")
-post_date=$(date +"%A %d %B, %Y")
+post_date=$(date +"%Y %b %d")
+post_datetime=$(date -Iseconds)
 
-if [ -n $1 ]; then
+if [ -n "$1" ]; then
   title=$1
 else
   title=$filename
+fi
+
+if [ ! -d posts ]; then
+  mkdir posts
 fi
 
 cat << EOF >> ./posts/${filename}.md
 ---
 title: "$title"
 date: "$post_date"
+datetime: "$post_datetime"
 tags: []
 ...
 EOF

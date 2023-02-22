@@ -1,28 +1,42 @@
 :root {
-  --main-bg-color: #062e32;
-  --main-fg-color: #c2cccd;
-  --soft-fg-color: #9ba3a4;
-  --code-bg-color: #042023;
-  --code-fg-color: #6d8a8d;
-  --bq-border-color: #506c6f;
-  --main-font: "Public Sans";
-  --base-font-size: 16px;
-  --fallback-font: "Nunito";
-  --mono-font: "Dank Mono";
-  --header-font: "Sweet Sans Pro";
-  --section-title-font: "Sweet Sans Pro";
-  --section-title-font-size: 2.5rem;
-  --section-title-color: #a287ab;
-  --section-body-font-size: 1.5rem;
-  --quote-font: "Space Grotesk";
-  --link-fg-color: #6795c9;
-  --link-hl-color: #6795c9;
+  --main-bg-color: #2E3440;
+  --main-fg-color: #d8dee9;
+  --soft-fg-color: #81858b;
+  --h1-fg-color: #d08770;
+  --h3-fg-color: #ebcb8b;
+  --highlight-color: #81a1c1;
+  --standout-color: #a3be8c;
+  --standout-color-bright: #8fbcbb;
+  --date-color: #b48ead;
+  --code-bg-color: #434c5e;
+  --code-fg-color: #eceff4;
+  --blockquote-border-color: #506c6f;
+  --link-fg-color: #5e81ac;
+  --link-hl-color: #88c0d0;
   --name-fg-color: #984b98;
-  --h3-fg-color: #e2a50d;
-  --h3-font-size: 18px;
+  --dt-color: #db9c43;
+  --st-color: #dd8bce;
+  --section-title-color: #9a769a;
+
+  --main-font: "Marion";
+  --mono-font: "FreeMono";
+  --header-font: "Trueno";
+  --section-title-font: var(--header-font);
+  --quote-font: "Space Grotesk";
+
+  --base-font-size: 20px;
+  --section-title-font-size: 2em;
+  --section-body-font-size: 1.5em;
+  --h3-font-size: 1.2em;
   --gradient-start: 255, 27, 141, 1;
   --gradient-middle: 255, 218, 0, 1;
   --gradient-end: 27, 179, 255, 1;
-  --dt-color: #db9c43;
-  --st-color: #dd8bce;
 } 
+
+@media only screen
+and (max-device-width: 926px)
+{
+  :root {
+    --base-font-size: 35px;
+  }
+}

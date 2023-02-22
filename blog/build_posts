@@ -2,20 +2,35 @@
 
 # A script to generate static webpages using pandoc, with template support 
 
-# This script is meant to be used inside $siteroot/blog. It will process all .md files in $siteroot/blog/posts, and output to $siteroot/blog/generated. 
+# This script is meant to be used inside $siteroot/blog. It will process all .md files in $siteroot/blog/posts and output them to $siteroot/blog/generated, add the three most recent posts to the metadata.json file, and create an index.html for the blog section with a list of all entries. I also plan to add links for the next and previous post to the footer dynamically, which may be overkill due to those values only changing on the previously-most-recent page when a new one is created or in the rare case of a post being deleted although this would hide the fact that a post had been created and deleted later, which may not be wanted behavior.
 
 # My setup has partials included in the template file, as yours should too, so the default behavior is for this script to use the template in your $siteroot/blog directory. If you have more than one or use a different directory, use --template to specifiy which to use, or use --no-template to generate as-is.  
 # NOT POSIX COMPLIANT AT THE MOMENT
-# variable substitution of is bashism
+# variable substitution is bashism
+# dependencies: pandoc >= 2.14 (I think) 
 
 if [ ! -d "generated" ]; then
   echo "Creating output directory..."
   mkdir generated
 fi
 
-for f in posts/*; do
+# wipe the entry list so rebuild with only valid entries 
+if [ -f "content.tpl" ]; then
+  > content.tpl
+fi
+
+for f in $(ls -1 posts/* | sort -r); do
   file=${f##*/}
+  title=$(cat $f | grep "^title:" | sed 's/title: //' | sed 's/"//g')
+  date=$(cat $f | grep "^date:" | sed 's/date: //' | sed 's/"//g')
   pandoc --template=blogpost.tpl --metadata-file=metadata.json $f > "generated/${file//md/html}"
+  echo "<li><time>$date</time>   <a class="directorylink" href=/blog/generated/${file//md/html}>$title</a></li>" >> content.tpl
 done 
 
+# Generate recentposts.tpl
+tail -n 10 content.tpl > recentposts.tpl
 
+# Generate blog/index.html
+pandoc --template=index.tpl --metadata-file=metadata.json index.md > index.html 
+
+### Try to also create a tag-sorted page

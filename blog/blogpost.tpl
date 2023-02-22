@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="date" content='$date-meta$'>
+    <link rel="stylesheet" href="../../css/font.css" type="text/css" media="all">
     <link rel="stylesheet" href="../../css/global-variables.css" type="text/css" media="all">
     <link rel="stylesheet" href="../../css/global-style.css" type="text/css" media="all">
     <link rel="stylesheet" href="../../css/blog.css" type="text/css" media="all">
@@ -11,9 +12,10 @@
   </head>
   <body>
     <div class="content">
-    ${if(date)}<p class="date">$date$</p>${endif}
+    ${if(title)}<p class="title">$title$</p>${endif}
     $body$
+    ${if(date)}<p class="date">$date$</p>${endif}
     </div>
   </body>
-  ${if(sidebar)}${sidebar.tpl()}${endif}
+  ${if(footer)}${footer.tpl()}${endif}
 </html>

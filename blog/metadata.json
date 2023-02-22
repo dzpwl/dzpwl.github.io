@@ -1,9 +1,12 @@
 {
   "nav": [
-    {"label": "home", "href": "../../index.html" },
-    {"label": "blog", "href": "../index.html" }
+    {"label": "home", "href": "/index.html" },
+    {"label": "blog", "href": "/blog/index.html" }
   ],
-  "sidebar": [
+  "footer": [
+    {"placeholder"}
+  ],
+  "content": [
     {"placeholder"}
   ]
 }

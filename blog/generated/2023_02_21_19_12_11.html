@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="date" content=''>
+    <link rel="stylesheet" href="../../css/font.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../css/global-variables.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../css/global-style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../css/blog.css" type="text/css" media="all">
+    <title>The Church of Acme Code Blog - Recovery and two
+lessons</title>
+
+  </head>
+  <body>
+    <div class="content">
+    <p class="title">Recovery and two lessons</p>
+    <p>Well, it has been a long time and I’m just going to jump right
+    into it without my normal lengthy setup.</p>
+    <p>In January, I had to have a last-minute gall bladder removal
+    (cholocystectomy). I started in with a pain while on a quick
+    overnight trip to Leavenworth to give my daughter at least one last
+    day of playing in the snow. I woke up at 2am Friday morning with
+    what felt like a really bad case of heartburn which slightly
+    improved by being upright. After driving home from Leavenworth, two
+    trips to separate urgent care clinics, and a specialist visit, it
+    was determined I need to have my gall bladder out. Although my case
+    was urgent and needed addressing, it wasn’t immediately
+    life-threatening which meant I could have a cheaper elective surgery
+    in a facility in Kirkland. So, after a full week of constant pain,
+    it was finally over, replaced by a much more temporary pain which I
+    only needed to wait to pass.</p>
+    <p>So that’s what I’ve been the majority of 2023: unable to lift a
+    2.5 year old and dropping to my knees every time I have to cough or
+    sneeze. Now onto the two things I learned the hard way over the last
+    day.</p>
+    <p>So I have some scripts for a conky panel which features some
+    information about the computer I’m currently using, augmented with
+    some information about my current imprecise location as well as the
+    weather. I had switched from using <a
+    href="openweathermap.com">openweathermap.com</a> to <a
+    href="wttr.in">wttr.in</a> for my weather info and wrapped it all up
+    in a <a
+    href="https://github.com/dzpwl/doot/blob/laptop/.config/scripts/weather_updated">script</a>
+    since my weather info is separated into one bit of info per line to
+    reduce the amount of curl commands I would use. Well at some point
+    yesterday, wttr had broken, appearing to have surpassed a monthly
+    limit of queries. In the script, I had never assumed that the
+    service at wttr might not always work, so when it broke, it broke in
+    a very <a
+    href="https://reddit.com/r/softwaregore">r/softwaregore</a> kind of
+    way. All of the anticipated fields were still displayed, and instead
+    of having a delimiter-separated string of data, I was given an
+    unsightly error which was being displayed spectacularly in my
+    temperature line, with all the following pieces of information
+    conspicuously blank.</p>
+    <p>So I made two changes to the script, with my new appreciation for
+    error-handling design; firstly, check the status code of the service
+    I would like to query; and secondly, which was particular to the
+    issue with wttr, if it returns a <a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200">200
+    OK</a>, figure out whether or not there is still an issue.</p>
+    <p>I would obviously have to have a plan for what would happen in
+    these eventualities (since yes, they will rarely but assuredly be
+    unreachable at some point). The first was done easily with, aside
+    from function declaration and closing bracket, a single line of
+    code. The second was a bit trickier, and at the moment of publishing
+    of this post the script on my github is not the final code. What I
+    had initially done was rely on another expected behavior; in this
+    instance, the fact that an issue with wttr’s service while still
+    showing a 200 OK on a status check will return a string beginning
+    with “Unknown”. After the quick fix, it dawned on me that this was
+    the same thing I had been doing in the first place, just wearing a
+    bit of a different hat. So the final fix to this version of the
+    script will check that the information I am expecting is in the
+    expected format; anything else will result in the script essentially
+    noping out and returning nothing. In the case of my conky panel, It
+    certainly looks better to have no weather info at all rather than a
+    bunch of unpopulated fields.</p>
+    <p>The second lesson, which I learned this morning came as a great
+    opportunity to learn a little bit more about git. I had notice on my
+    laptop that for some reason my <a
+    href="https://github.com/dzpwl/doot">dotfile repository</a> was
+    missing the branch I had created for my desktop. In the process of
+    trying to pull (slight foreshadowing) a copy onto my laptop, I made
+    the mistake of using <code>git pull</code> instead of
+    <code>git fetch</code> and accidentally merged most of my files. I
+    was able to revert all of the changes mostly painlessly, as after
+    fetching the branch I could just <code>git checkout</code> all of
+    the files I wanted updated anyway, and what was left was just what
+    should be local copies of files. I’ve mostly gone through to remove
+    any files I would reasonably assume to be tinkered with (namely,
+    <code>.bashrc</code>, <code>.jwmrc</code>, and
+    <code>alacritty.yml</code>) which makes it easier to switch between
+    branches anyway since I don’t get all the warnings about having
+    different copies of the same file that are going to be replaced when
+    using <code>git checkout {branch}</code>.</p>
+    <p>Anyway, it was certainly an insightful 24 hours, and I’m
+    certainly better for having gone through these issues firsthand
+    since now I can have these things in my mind from the beginning when
+    I start to write. I hope this wasn’t too much to read, and thanks
+    for sticking with me if you’ve made it this far. It’s a blog about
+    newbie hobbyist coding problems anyway, it’s not exactly the most
+    riveting material.</p>
+    <p class="date">2023 Feb 21</p>
+    </div>
+  </body>
+  <div class="footer">
+  <div class="nav">
+    <ul>
+  <li><a class="navlink" href="/index.html">home</a></li><li><a class="navlink" href="/blog/index.html">blog</a></li>
+</ul>
+    
+  </div>
+<div>
+</html>
